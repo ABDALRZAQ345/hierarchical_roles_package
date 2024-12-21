@@ -1,0 +1,21 @@
+{
+    "name": "abd_alrzaq/roles",
+    "description": "test package to check the role of the user",
+    "type": "library",
+    "require": {
+
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "AbdAlrzaq\\Roles\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ABDALRZAQ345",
+            "email": "jmalj6564@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
