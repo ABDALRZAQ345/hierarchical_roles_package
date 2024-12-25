@@ -1,26 +1,32 @@
 <?php
 
+use AbdAlrzaq\Roles\Models\Permission;
+use AbdAlrzaq\Roles\Models\Role;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
     public function up(): void
     {
         Schema::create('roles', function (Blueprint $table) {
-        $table->id();
-        $table->string('name')->unique();
-        $table->timestamps();
-    });
+            $table->id();
+            $table->string('name')->unique();
+            $table->unsignedBigInteger('parent_id')->nullable();
+            $table->unsignedBigInteger('entry')->nullable();
+            $table->unsignedBigInteger('exit')->nullable();
+            $table->unsignedBigInteger('root')->nullable();
+            $table->foreign('parent_id')->references('id')->on('roles')->onDelete('cascade');
+            $table->timestamps();
+        });
 
-        Schema::create('roleables', function (Blueprint $table) {
+        Schema::create('model_role', function (Blueprint $table) {
             $table->id();
             $table->foreignId('role_id')->constrained()->onDelete('cascade');
-            $table->morphs('roleable');
+            $table->morphs('model');
             $table->timestamps();
         });
 
@@ -31,7 +37,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('roleables');
+        Schema::dropIfExists('model_role');
         Schema::dropIfExists('roles');
     }
 };
