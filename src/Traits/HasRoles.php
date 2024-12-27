@@ -3,6 +3,7 @@
 namespace AbdAlrzaq\Roles\Traits;
 
 use AbdAlrzaq\Roles\Models\Role;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
@@ -19,12 +20,17 @@ trait HasRoles
     /**
      * @throws \Exception
      */
-    public function assignRole($role): void
+    public function assignRole($role)
     {
-        if ($this->hasRole($role)) return;
+        if ($this->hasRole($role)) {
+            return "the user already has this role or some ancestor role ";
+        }
 
         if (is_string($role)) {
-            $role = Role::where('name', $role)->firstOrFail();
+            $role = Role::where('name', $role)->first();
+            if(!$role){
+                return  "there is no such role";
+            }
         }
 
         $roles = $this->roles()->where('root', $role->root)->get();
@@ -64,7 +70,8 @@ trait HasRoles
     {
 
         if (is_string($role)) {
-            $role = Role::where('name', $role)->firstOrFail();
+            $role = Role::where('name', $role)->first();
+            if(!$role) return false;
         }
         $roles = $this->roles()->where('root', $role->root)->get();
         $exist = false;

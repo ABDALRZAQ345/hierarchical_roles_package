@@ -1,7 +1,6 @@
 <?php
 
-use AbdAlrzaq\Roles\Models\Permission;
-use AbdAlrzaq\Roles\Models\Role;
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;

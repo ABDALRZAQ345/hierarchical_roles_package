@@ -1,8 +1,8 @@
 <?php
 namespace AbdAlrzaq\Roles\Console\Commands;
 
-use Illuminate\Console\Command;
 use AbdAlrzaq\Roles\Models\Role;
+use Illuminate\Console\Command;
 
 class AssignRoleCommand extends Command
 {

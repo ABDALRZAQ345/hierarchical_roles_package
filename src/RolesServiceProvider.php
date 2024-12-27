@@ -1,8 +1,9 @@
 <?php
-
 namespace AbdAlrzaq\Roles;
 
-use AbdAlrzaq\Roles\Middleware\CheckRole;
+use AbdAlrzaq\Roles\Console\Commands\AssignRoleCommand;
+use AbdAlrzaq\Roles\Console\Commands\RemoveRoleCommand;
+
 use Illuminate\Support\ServiceProvider;
 
 class RolesServiceProvider extends ServiceProvider
@@ -27,8 +28,8 @@ class RolesServiceProvider extends ServiceProvider
         ], 'migrations');
         if ($this->app->runningInConsole()) {
             $this->commands([
-                \AbdAlrzaq\Roles\Console\Commands\AssignRoleCommand::class,
-                \AbdAlrzaq\Roles\Console\Commands\RemoveRoleCommand::class,
+                AssignRoleCommand::class,
+               RemoveRoleCommand::class,
             ]);
         }
 

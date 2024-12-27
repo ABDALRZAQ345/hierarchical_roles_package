@@ -4,6 +4,11 @@
     "type": "library",
     "require": {
         "laravel/framework": "^11.31"
+
+    },
+    "require-dev": {
+
+        "phpunit/phpunit": "*"
     },
     "license": "MIT",
     "autoload": {
