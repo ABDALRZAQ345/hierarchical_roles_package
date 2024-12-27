@@ -1,1 +1,0 @@
-{"version":1,"defects":{"AbdAlrzaq\\Roles\\tests\\Unit\\RoleTest::test_role_creation":8,"AbdAlrzaq\\Roles\\tests\\Feature\\RoleTest::test_role_creation":8},"times":{"AbdAlrzaq\\Roles\\tests\\Unit\\RoleTest::test_role_creation":0.054,"AbdAlrzaq\\Roles\\tests\\Feature\\RoleTest::test_role_creation":0.071}}
