@@ -105,19 +105,6 @@ class Role extends Model
         $role->save();
         self::eulerTour($role->root);
     }
-    protected static function hasCircularDependency($current, $role): bool
-    {
-       
-
-        while ($current != null) {
-            if ($current->id == $role->id) {
-                return true;
-            }
-            $current = $current->parent; // Move up the hierarchy
-        }
-
-        return false;
-    }
 
     protected static function resolveRole($role): ?Role
     {
